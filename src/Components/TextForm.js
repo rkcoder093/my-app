@@ -33,13 +33,15 @@ const handleonChange=(event)=>{
           rows="3" value={text} onChange={handleonChange}
         ></textarea>
       </div>
-      <button className="btn btn.primary mx-2" onClick={handleupClick}>Convert to UpperCase</button>
-      <button className="btn btn.primary mx-2" onClick={handleloClick}>Convert to LowerCase</button>
+      <button className="btn btn.primary mx-1 my-1" onClick={handleupClick}>Convert to UpperCase</button>
+      <button className="btn btn.primary mx-1 my-1" onClick={handleloClick}>Convert to LowerCase</button>
 
     </div>
     <div className='container my-2' style={{color: props.mode === 'dark'?'white':'black'}}>
         <h2>your text sumarry</h2>
-        <p>{text.split(" ").length} words and {text.length} character</p>
+        <p>{text.split(" ").filter(item => {
+          return item.length!==0;
+        }).length} words and {text.length} character</p>
         <p>{0.008*text.split(" ").length} minuts to read</p>
         <h2>preview</h2>
         <p>{text.length>0?text:"Enter your text to priview"}</p>
